@@ -1,0 +1,101 @@
+// В этом файле должны быть стили для БЭМ-блока tabs, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+$gray-lightest:               hsl(0, 0%, 90%) !default;
+
+$text-color:                  hsl(0, 0%, 10%) !default;
+$text-color--muted:           hsl(0, 0%, 50%) !default;
+
+$border-color:                hsl(0, 0%, 60%) !default;
+
+$line-height:                 1.375em !default;
+
+$field-padding-vertical:      0.3em !default;
+$field-padding-horizontal:    0.7em !default;
+
+.tabs {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin-top: $line-height;
+  margin-bottom: $line-height;
+
+  &__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    cursor: pointer;
+
+    .no-js & {
+      display: none;
+    }
+
+    &:after {
+      content: '';
+      flex-grow: 1;
+      height: 1px;
+    }
+  }
+
+  &__link-wrap {
+    position: relative;
+
+    &:not(:last-child) {
+      border-right: none;
+      margin-right: 30px;
+    }
+
+    &--active {
+
+      #{$block-name}__link {
+        color: $color-main;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: $field-padding-vertical 0;
+    color: #2b2b2b;
+    opacity: 0.7;
+    font-size: 12px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $color-main;
+    }
+  }
+
+  &__content-wrapper {
+    display: block;
+    padding: 20px 0;
+  }
+
+  &__content-item {
+
+    font-family: 'Proxima Nova';
+
+    .js & {
+      display: none;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #0d0d0d;
+    }
+
+    &--active {
+
+      .js & {
+        display: block;
+      }
+    }
+  }
+}

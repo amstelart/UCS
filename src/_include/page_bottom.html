@@ -1,0 +1,140 @@
+<!--DEV Такой комментарий не попадет в собранный HTML
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.3.1.1.min.js"><\/script>')</script>
+-->
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src="js/min.js"></script>
+<script src="http://www.kirupa.com/js/prefixfree.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+<script src="js/script.min.js"></script>
+
+<!-- Попап для подписки на новости -->
+<div class="mgp-popup mfp-hide mgp-popup-news-subscribe" id="news-subscribe-popup">
+  <form action="/files/mail/subscr.php" data-form="news-subscribe-form" method="POST">
+    <input type="hidden" name="referer" value="https://www.ucs-spb.ru/">
+
+    <button class="mgp-popup-close"></button><!-- /mgp-popup-close -->
+
+    <div class="mgp-popup-content">
+
+      <div class="mgp-popup-heading">Подпишитесь на новости</div><!-- /mgp-popup-heading -->
+      <table class="mgp-popup-table">
+        <tr>
+          <td>
+            <input type="text" name="Email" placeholder="Ваш email-адрес" class="mgp-popup-input">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit" class="mgp-popup-btn">
+              <span class="icon-write"></span>
+              Подписаться
+            </button>
+          </td>
+        </tr>
+      </table>
+
+    </div><!-- /mgp-popup-content -->
+
+  </form>
+</div><!-- /mgp-popup -->
+
+
+<style>
+  .mgp-popup-news-subscribe {
+    max-width: 400px;
+  }
+
+  .mgp-popup-news-subscribe .mgp-popup-btn {
+    width: 100%;
+  }
+</style>
+
+
+<script>
+  $(document).ready(function() {
+    $(document).on('click', '[data-action="news-subscribe"]', function() {
+      $.magnificPopup.open({
+        items: {
+          src: '#news-subscribe-popup'
+        },
+        type: 'inline',
+        showCloseBtn: false,
+        mainClass: 'mfp-with-zoom',
+        zoom: {
+          enabled: true,
+          duration: 300,
+          easing: 'ease-in-out',
+        }
+      });
+    });
+
+    // Отправка формы подписки на новости
+    $(document).on('submit', '[data-form="news-subscribe-form"]', function(event) {
+      event.preventDefault();
+
+      // JQuery-объект формы
+      $form = $(this);
+
+      // Список регулярных выражений для проверок
+      var regexes = {
+        email: /[0-9a-z_]+@[0-9a-z_^.]+.[a-z]{2,3}/i,
+      };
+
+      // Массив данных для отправки
+      var data = {};
+      $.each(['Email'], function(index, key) {
+        // Убираем стилизацию ошибочных полей
+        $('[name="' + key + '"]', $form).removeClass('is-error');
+
+        // Заносим данные в объект
+        data[key] = {
+          value: $('[name="' + key + '"]', $form).val(),
+          error: false
+        };
+
+        // Проверка заполнения обязательных полей
+        if (['Email'].indexOf(key) !== -1 && !data[key].value) {
+          data[key].error = true;
+        }
+      });
+
+      // Проверка формата email-адреса
+      if (regexes.email.exec(data['Email'].value) == null) {
+        data['Email'].error = true;
+      }
+
+      // Массив с данными для отправки методом POST
+      postData = {};
+
+      // Разрешена ли отправка формы
+      reqAllowed = true;
+
+      for (key in data) {
+        // Элемент формы заполнен некорректно
+        if (data[key].error) {
+          // Добавляем стилизацию ошибочных полей
+          $('[name="' + key + '"]', $form).addClass('is-error');
+
+          // Отправка формы запрещена
+          reqAllowed = false;
+        }
+
+        // Вносим данные в массив для отправки
+        postData[key] = data[key].value;
+      }
+
+      // Отправка формы
+      if (reqAllowed) {
+        $.post($form.prop('action'), postData, function(data) {
+          // Закрываем попап с формой
+          $.magnificPopup.close();
+
+          // Показываем сообщение об успешной отправке
+          $("#parent_popup_news").fadeIn(300);
+        });
+      }
+    });
+  });
+</script>
