@@ -1,6 +1,12 @@
 // Если на проекте jQuery
 $( document ).ready(function() {
   // code
+
+  $('.drawer').drawer();
+  $( ".slide-basket__btn" ).click(function() {
+    $('.drawer').drawer('open');
+  });
+
   $("#product-summary-slider").slick({
       mobileFirst: !0,
       infinite: !0,

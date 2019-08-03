@@ -5,6 +5,11 @@
 .header-logo {
   display: flex;
   align-items: center;
+  margin-right: 5%;
+
+  @media (min-width: $screen-xl) {
+    margin-right: 7%;
+  }
 
   &__img {
     background: url(../images/ucs_logo.svg) no-repeat;
@@ -15,10 +20,24 @@
 
   &__about {
     margin-top: 0;
+
+    @media (max-width: 410px) {
+      display: none;
+    }
   }
 }
 
 .header-call {
+  margin-right: 2%;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  @media (min-width: $screen-xl) {
+    margin-right: 7%;
+  }
+
   &__phone {
     a {
       text-decoration: none;
@@ -48,9 +67,22 @@
   font-family: 'Proxima Nova';
   font-size: 12px;
   line-height: 1.5;
+  margin-right: 2%;
+
+  @media (max-width: ($screen-lg - 1)) {
+    display: none;
+  }
 }
 
 .header-search {
+
+  position: relative;
+  margin-right: 1.4%;
+  margin-left: auto;
+
+  @media (max-width: ($screen-md - 1)) {
+    display: none;
+  }
 
   input[type=text] {
     margin-top: 0;
@@ -59,16 +91,30 @@
     background: #fff;
     font-size: 14px;
     height: 36px;
-    width: 214px;
+    max-width: 214px;
+    width: auto;
     font-family: 'Proxima Nova';
+    padding-left: 10px;
 
     &::placeholder {
       color: #e8e8e8;
     }
   }
+
+  input[type=image] {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+    margin: 0;
+  }
 }
 
 .header-basket {
+
+  @media (max-width: ($screen-md - 1)) {
+    margin-left: auto;
+  }
 
   .basket-btn {
     border-radius: 3px;
@@ -77,9 +123,16 @@
     font-size: 14px;
     color: #fff;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     padding: 10px 18px 9px 18px;
     position: relative;
+
+    @media (max-width: ($screen-lg - 1)) {
+      width: 43px;
+      height: 43px;
+      font-size: 0;
+      margin-right: 15px;
+    }
 
     &:hover {
       background-color: darken(#3ead59, 6%);
@@ -115,20 +168,23 @@
   color: #2b2b2b;
 
   &__top {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #f5f5f5;
+
+    @media (min-width: $screen-lg) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
   }
 
   &__top-inner {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 
     .menu_button {
-      margin-left: auto;
-      margin-top: 0;
+      margin: 0
     }
   }
 

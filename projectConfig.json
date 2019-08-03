@@ -10,7 +10,8 @@
     "tabs": [],
     "tooltip": [],
     "footer": [],
-    "change-qty": []
+    "change-qty": [],
+    "slide-basket": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",

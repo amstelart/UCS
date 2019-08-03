@@ -126,6 +126,7 @@ $border-radius:               3px !default;
     &:hover,
     &:focus {
       color: $color-main;
+      border-color: $color-main;
       background-color: #fff;
     }
   }

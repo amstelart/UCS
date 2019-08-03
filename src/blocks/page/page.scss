@@ -129,7 +129,14 @@ svg {
 .menu {
 
 	height: auto;
-	top: 0;
+
+	@media (min-width: $screen-lg) {
+		top: 0;
+	}
+
+	@media (max-width: ($screen-lg - 1)) {
+		top: 64px;
+	}
 
   .toplevel {
 
@@ -180,13 +187,21 @@ svg {
   }
 
   &__title {
-    font-size: 40px;
+    font-size: 16px;
 		font-family: 'MuseoSans';
 		font-weight: 700;
     letter-spacing: -0.33px;
     color: #0d0d0d;
     text-align: left;
     margin: 15px 0;
+
+		@media (min-width: $screen-md) {
+			font-size: 24px;
+		}
+
+		@media (min-width: $screen-lg) {
+			font-size: 40px;
+		}
   }
 
   &__inner {
@@ -320,6 +335,7 @@ svg {
 
     &__bottom {
       @include row;
+			align-items: flex-end;
     }
 
     &__price {
@@ -370,11 +386,13 @@ svg {
 
   &__slider-wrap {
     @include col();
+    @include col(md, 6);
     @include col(lg, 7);
   }
 
   &__summary-prices {
     @include col();
+    @include col(md, 6);
     @include col(lg, 5);
   }
 
@@ -383,11 +401,13 @@ svg {
 
     .product-summary-slider {
       @include col();
-      @include col(md, 2);
+      @include col(md, 3);
+      @include col(lg, 2);
     }
     .product-summary-slider-main {
       @include col();
-      @include col(md, 10);
+      @include col(md, 9);
+      @include col(lg, 10);
     }
   }
 }
@@ -559,7 +579,10 @@ svg {
 
   &__info {
     margin-bottom: 25px;
-    max-width: 80%;
+
+		@media (min-width: $screen-lg) {
+			max-width: 80%;
+		}
 
     ul {
       font-size: 14px;
@@ -587,7 +610,10 @@ svg {
 
   &__action {
     margin-bottom: 25px;
-    max-width: 80%;
+
+		@media (min-width: $screen-lg) {
+			max-width: 80%;
+		}
   }
 
   &__price {
@@ -617,6 +643,15 @@ svg {
       width: calc(50% - 5px);
     }
   }
+
+	&__stats {
+		display: flex;
+		flex-wrap: wrap;
+
+		.stats-item {
+			margin-right: 25px;
+		}
+	}
 }
 
 .product-feature {
@@ -772,6 +807,7 @@ svg {
 		color: $color-main;
 		font-size: 30px;
 		font-weight: 700;
+		white-space: nowrap;
 	}
 
 	.btn-remove {
@@ -789,7 +825,7 @@ svg {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: flex-end;
-	padding: 30px 0;
+	padding: 30px 0 80px;
 
 	.checkout-total {
 		display: flex;
@@ -806,6 +842,7 @@ svg {
 		  font-weight: bold;
 		  line-height: 0.67;
 		  color: #3ead59;
+			white-space: nowrap;
 		}
 	}
 }
@@ -845,6 +882,9 @@ svg {
 }
 
 .stats-item {
+
+	font-size: 12px;
+	line-height: 1.67;
 
 	&--order {
 		color: #E73333;

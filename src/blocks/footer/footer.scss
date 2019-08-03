@@ -12,18 +12,24 @@
 
 .footer-feedback {
   background-color: #3ead59;
-  padding: 40px 0;
+  padding: 40px 0 25px;
   color: #fff;
 
   &__inner {
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
     p {
       line-height: 1.38;
       font-size: 16px;
+    }
+
+    p,
+    .btn {
+      margin-bottom: 15px;
     }
   }
 }
