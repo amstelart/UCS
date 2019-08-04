@@ -132,6 +132,10 @@
       height: 43px;
       font-size: 0;
       margin-right: 15px;
+      background-image: svg-load('../images/shopping-cart.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px 20px;
     }
 
     &:hover {

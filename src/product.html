@@ -8,8 +8,49 @@
     @@include('_include/page_head.html')
   </head>
 
-  <body>
+  <body class="drawer drawer--right">
     @@include('blocks/header/header.html')
+
+    <div class="drawer-nav slide-basket">
+      <div class="slide-basket__inner">
+        <div class="slide-basket__header">
+          <button type="button" class="drawer-toggle drawer-hamburger">
+            <span class="sr-only">toggle navigation</span>
+            <span class="drawer-hamburger-icon"></span>
+          </button>
+          <div class="slide-basket__title">Корзина</div>
+        </div>
+        <div class="product-table">
+          <div class="product-table__row">
+            <div class="product-table__col product-table__col--info">
+              <div class="product-table__name"><a href="product.html">SuperPOS</a></div>
+              <ul class="product-table__info-list">
+                <li>Рабочая станция</li>
+              </ul>
+            </div>
+            <div class="product-table__col product-table__col--qty">
+              <span class="product-table__stats">В наличии</span>
+              <div class="change-qty">
+                <span class="change-qty__btn btn-minus"><span class="icon-minus"></span></span>
+                <input class="change-qty__value" name="qty" value="1">
+                <span class="change-qty__btn btn-plus"><span class="icon-plus"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="basket-checkout">
+          <div class="checkout-total">
+            <div class="checkout-total__text">Общая сумма:</div>
+            <div class="checkout-total__price">8 000 ₽</div>
+          </div>
+          <button class="btn btn--green checkout-btn">Оформить заказ</button>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn slide-basket__btn">
+      <span class="basket-btn-count">2</span>
+    </button>
 
     <main class="product">
       <div class="container">

@@ -43,7 +43,7 @@
   }
 
   &__btn {
-    background: $color-main;
+    background-color: $color-main;
     border: none;
     box-shadow: none;
     position: fixed;
@@ -54,10 +54,14 @@
     height: 54px;
     border-top-left-radius: 35px;
     border-bottom-left-radius: 35px;
+    background-image: svg-load('../images/shopping-cart.svg');
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+    background-size: 26px 26px;
 
     &:hover,
     &:focus {
-      background: darken($color-main, 6%);
+      background-color: darken($color-main, 6%);
     }
 
     .basket-btn-count {

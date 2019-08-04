@@ -7,6 +7,19 @@ $( document ).ready(function() {
     $('.drawer').drawer('open');
   });
 
+  var nav = priorityNav.init({
+    mainNavWrapper: ".catalog-nav-wrapper",
+    mainNav: ".catalog-nav-ul",
+    navDropdownLabel:           "Все",
+    navDropdownClassName: "nav__dropdown", // class used for the dropdown.
+    navDropdownToggleClassName: "nav__dropdown-toggle", // class used for the dropdown toggle.
+    navDropdownBreakpointLabel: "menu", //button label for navDropdownToggle when the breakPoint is reached.
+    breakPoint:                 320, //amount of pixels when all menu items should be moved to dropdown to simulate a mobile menu
+    throttleDelay:              50, // this will throttle the calculating logic on resize because i'm a responsible dev.
+    offsetPixels:               0, // increase to decrease the time it takes to move an item.
+    count:                      true
+  });
+
   $("#product-summary-slider").slick({
       mobileFirst: !0,
       infinite: !0,
