@@ -1,0 +1,20 @@
+// В этом файле должны быть стили для БЭМ-блока related-products, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.related-products {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin-bottom: 60px;
+
+  &__carousel {
+
+    .c_card {
+      padding: 0 15px;
+    }
+    // .slick-slide {
+    //   padding: 0 15px 20px 15px;
+    // }
+  }
+}

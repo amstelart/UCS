@@ -11,7 +11,9 @@
     "tooltip": [],
     "footer": [],
     "change-qty": [],
-    "slide-basket": []
+    "slide-basket": [],
+    "c_card": [],
+    "related-products": []
   },
   "addCssBefore": [
     "./src/scss/variables.scss",
