@@ -309,7 +309,8 @@ button svg {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-left: -15px;
-    margin-right: -15px; }
+    margin-right: -15px;
+    position: relative; }
 .product__slider > * {
       -ms-flex-preferred-size: 100%;
           flex-basis: 100%; }
@@ -327,6 +328,23 @@ button svg {
       max-width: 100%;
       padding-left: 15px;
       padding-right: 15px; }
+.product__slider .product-recommend {
+      position: absolute;
+      top: 60px;
+      right: -15px;
+      color: #3ead59;
+      text-transform: uppercase;
+      font-size: 12px;
+      -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+      z-index: 2; }
+.product__slider .product-vendor-code {
+      position: absolute;
+      top: 20px;
+      left: 120px;
+      color: #a9a9a9;
+      font-size: 12px;
+      z-index: 2; }
 .product-summary-slider .slider-item {
   height: 60px;
   max-width: 78px;
@@ -832,6 +850,26 @@ button svg {
   padding: 0.5rem 2rem;
   font-weight: 400;
   font-size: 1.6rem; }
+.advise-logo {
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.04);
+          box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.04);
+  border: solid 1px #919191;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 0; }
+.advise-logo img {
+    width: 100%;
+    max-width: 120px;
+    height: auto; }
 .header-logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -953,12 +991,12 @@ button svg {
 .header__top-inner .menu_button {
       margin: 0; }
 .temp-icon-left-arrow {
-  background-image: url(../img/sprite-08770635164349379.png);
+  background-image: url(../img/sprite-015198670640416068.png);
   background-position: 0px 0px;
   width: 32px;
   height: 32px; }
 .temp-icon-right-arrow {
-  background-image: url(../img/sprite-08770635164349379.png);
+  background-image: url(../img/sprite-015198670640416068.png);
   background-position: -36px 0px;
   width: 32px;
   height: 32px; }
@@ -1637,6 +1675,8 @@ a.btn--disabled {
     .drawer--right .slide-basket {
       right: -100%; } }
 @media (max-width: 767px) {
+        .product__slider .product-vendor-code {
+          left: 15px; }
     .product-summary-slider {
       display: none !important; }
     .product-table__row {
